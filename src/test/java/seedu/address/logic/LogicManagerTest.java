@@ -1,14 +1,14 @@
-package seedu.address.logic;
+package seedu.planner.logic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_CONTACT_DISPLAYED_INDEX;
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
-import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalContacts.AMY;
+import static seedu.planner.commons.core.Messages.MESSAGE_INVALID_CONTACT_DISPLAYED_INDEX;
+import static seedu.planner.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.planner.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
+import static seedu.planner.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
+import static seedu.planner.logic.commands.CommandTestUtil.NAME_DESC_AMY;
+import static seedu.planner.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
+import static seedu.planner.testutil.Assert.assertThrows;
+import static seedu.planner.testutil.TypicalContacts.AMY;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -17,21 +17,21 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import seedu.address.logic.commands.AddContactCommand;
-import seedu.address.logic.commands.CommandResult;
-import seedu.address.logic.commands.DeleteContactCommand;
-import seedu.address.logic.commands.ListContactCommand;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.Model;
-import seedu.address.model.ModelManager;
-import seedu.address.model.ReadOnlyPlanner;
-import seedu.address.model.UserPrefs;
-import seedu.address.model.contact.Contact;
-import seedu.address.storage.JsonPlannerStorage;
-import seedu.address.storage.JsonUserPrefsStorage;
-import seedu.address.storage.StorageManager;
-import seedu.address.testutil.ContactBuilder;
+import seedu.planner.logic.commands.AddContactCommand;
+import seedu.planner.logic.commands.CommandResult;
+import seedu.planner.logic.commands.DeleteContactCommand;
+import seedu.planner.logic.commands.ListContactCommand;
+import seedu.planner.logic.commands.exceptions.CommandException;
+import seedu.planner.logic.parser.exceptions.ParseException;
+import seedu.planner.model.Model;
+import seedu.planner.model.ModelManager;
+import seedu.planner.model.ReadOnlyPlanner;
+import seedu.planner.model.UserPrefs;
+import seedu.planner.model.contact.Contact;
+import seedu.planner.storage.JsonPlannerStorage;
+import seedu.planner.storage.JsonUserPrefsStorage;
+import seedu.planner.storage.StorageManager;
+import seedu.planner.testutil.ContactBuilder;
 
 public class LogicManagerTest {
     private static final IOException DUMMY_IO_EXCEPTION = new IOException("dummy exception");

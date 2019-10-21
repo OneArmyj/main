@@ -1,19 +1,19 @@
-package seedu.address.model.contact;
+package seedu.planner.model.contact;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalContacts.ALICE;
-import static seedu.address.testutil.TypicalContacts.BOB;
+import static seedu.planner.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.planner.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.planner.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.planner.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.planner.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.planner.testutil.Assert.assertThrows;
+import static seedu.planner.testutil.TypicalContacts.ALICE;
+import static seedu.planner.testutil.TypicalContacts.BOB;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.testutil.ContactBuilder;
+import seedu.planner.testutil.ContactBuilder;
 
 public class ContactTest {
 

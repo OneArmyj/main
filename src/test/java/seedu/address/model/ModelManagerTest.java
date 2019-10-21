@@ -1,11 +1,11 @@
-package seedu.address.model;
+package seedu.planner.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalContacts.ALICE;
-import static seedu.address.testutil.TypicalContacts.BENSON;
+import static seedu.planner.testutil.Assert.assertThrows;
+import static seedu.planner.testutil.TypicalContacts.ALICE;
+import static seedu.planner.testutil.TypicalContacts.BENSON;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -13,9 +13,9 @@ import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.field.NameContainsKeywordsPredicate;
-import seedu.address.testutil.PlannerBuilder;
+import seedu.planner.commons.core.GuiSettings;
+import seedu.planner.model.field.NameContainsKeywordsPredicate;
+import seedu.planner.testutil.PlannerBuilder;
 
 public class ModelManagerTest {
 

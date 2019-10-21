@@ -1,8 +1,8 @@
-package seedu.address.storage;
+package seedu.planner.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static seedu.address.testutil.TypicalContacts.getTypicalPlanner;
+import static seedu.planner.testutil.TypicalContacts.getTypicalPlanner;
 
 import java.nio.file.Path;
 
@@ -10,10 +10,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.Planner;
-import seedu.address.model.ReadOnlyPlanner;
-import seedu.address.model.UserPrefs;
+import seedu.planner.commons.core.GuiSettings;
+import seedu.planner.model.Planner;
+import seedu.planner.model.ReadOnlyPlanner;
+import seedu.planner.model.UserPrefs;
 
 public class StorageManagerTest {
 

@@ -1,0 +1,98 @@
+package seedu.planner.logic.commands;
+
+import static java.util.Objects.requireNonNull;
+import static seedu.planner.logic.parser.CliSyntax.PREFIX_DAY;
+import static seedu.planner.model.Model.PREDICATE_SHOW_ALL_DAYS;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import seedu.planner.commons.core.Messages;
+import seedu.planner.commons.core.index.Index;
+import seedu.planner.logic.commands.exceptions.CommandException;
+import seedu.planner.model.Model;
+import seedu.planner.model.activity.Activity;
+import seedu.planner.model.day.ActivityWithTime;
+import seedu.planner.model.day.Day;
+
+/**
+ * Unschedules an activity from the day by time.
+ */
+public class UnscheduleActivityCommand extends UnscheduleCommand {
+
+    public static final String SECOND_COMMAND_WORD = "activity";
+
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " " + SECOND_COMMAND_WORD + " "
+            + ": Unschedules all instances of an activity on a certain day. "
+            + "Parameters: INDEX (must be a positive integer) "
+            + PREFIX_DAY + "DAY";
+
+    public static final String MESSAGE_UNSCHEDULE_TIME_SUCCESS = "Activity %d unscheduled from Day %d";
+    public static final String MESSAGE_DUPLICATE_DAY = "This day already exists in the planner.";
+
+    private final Index activityIndexToUnschedule;
+    private final Index dayIndex;
+
+    /**
+     * @param activityIndex of the contacts in the filtered contacts list to edit
+     * @param dayIndex      of the contacts in the filtered contacts list to edit
+     */
+    public UnscheduleActivityCommand(Index activityIndex, Index dayIndex) {
+        requireNonNull(activityIndex);
+        requireNonNull(dayIndex);
+        this.activityIndexToUnschedule = activityIndex;
+        this.dayIndex = dayIndex;
+    }
+
+    @Override
+    public CommandResult execute(Model model) throws CommandException {
+        requireNonNull(model);
+        List<Day> lastShownDays = model.getFilteredItinerary();
+        List<Activity> lastShownActivities = model.getFilteredActivityList();
+
+        if (activityIndexToUnschedule.getZeroBased() >= lastShownActivities.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_ACTIVITY_DISPLAYED_INDEX);
+        }
+
+        Activity activityToUnschedule = lastShownActivities.get(activityIndexToUnschedule.getZeroBased());
+        Day dayToEdit = lastShownDays.get(dayIndex.getZeroBased());
+        Day editedDay = createUnscheduledActivityDay(dayToEdit, activityToUnschedule);
+        List<Day> editedDays = new ArrayList<>(lastShownDays);
+        editedDays.set(dayIndex.getZeroBased(), editedDay);
+
+        if (!dayToEdit.isSameDay(editedDay) && model.hasDay(editedDay)) {
+            throw new CommandException(MESSAGE_DUPLICATE_DAY);
+        }
+
+        model.setDays(editedDays);
+        model.updateFilteredItinerary(PREDICATE_SHOW_ALL_DAYS);
+        return new CommandResult(String.format(MESSAGE_UNSCHEDULE_TIME_SUCCESS, activityIndexToUnschedule.getOneBased(),
+                dayIndex.getOneBased()));
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof UnscheduleActivityCommand // instanceof handles nulls
+                && this.dayIndex.equals(((UnscheduleActivityCommand) other).dayIndex)
+                && this.activityIndexToUnschedule.equals(((
+                UnscheduleActivityCommand) other).activityIndexToUnschedule));
+    }
+
+    /**
+     * Creates a new day without the activity that is unscheduled.
+     *
+     * @param dayToEdit            of the contacts in the filtered contacts list to edit
+     * @param activityToUnschedule of the contacts in the filtered contacts list to edit
+     */
+    private Day createUnscheduledActivityDay(Day dayToEdit, Activity activityToUnschedule) {
+        List<ActivityWithTime> activitiesWithTime = dayToEdit.getActivitiesWithTime();
+        List<ActivityWithTime> editedActivitiesWithTime = new ArrayList<>();
+        for (ActivityWithTime a : activitiesWithTime) {
+            if (!a.getActivity().equals(activityToUnschedule)) {
+                editedActivitiesWithTime.add(a);
+            }
+        }
+        return new Day(editedActivitiesWithTime);
+    }
+}

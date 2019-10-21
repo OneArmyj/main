@@ -1,13 +1,13 @@
-package seedu.address.model;
+package seedu.planner.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalContacts.ALICE;
-import static seedu.address.testutil.TypicalContacts.getTypicalPlanner;
+import static seedu.planner.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.planner.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.planner.testutil.Assert.assertThrows;
+import static seedu.planner.testutil.TypicalContacts.ALICE;
+import static seedu.planner.testutil.TypicalContacts.getTypicalPlanner;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -18,12 +18,12 @@ import org.junit.jupiter.api.Test;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import seedu.address.model.accommodation.Accommodation;
-import seedu.address.model.activity.Activity;
-import seedu.address.model.contact.Contact;
-import seedu.address.model.contact.exceptions.DuplicateContactException;
-import seedu.address.model.day.Day;
-import seedu.address.testutil.ContactBuilder;
+import seedu.planner.model.accommodation.Accommodation;
+import seedu.planner.model.activity.Activity;
+import seedu.planner.model.contact.Contact;
+import seedu.planner.model.contact.exceptions.DuplicateContactException;
+import seedu.planner.model.day.Day;
+import seedu.planner.testutil.ContactBuilder;
 
 public class PlannerTest {
 

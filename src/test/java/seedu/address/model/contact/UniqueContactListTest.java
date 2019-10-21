@@ -1,13 +1,13 @@
-package seedu.address.model.contact;
+package seedu.planner.model.contact;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
-import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalContacts.ALICE;
-import static seedu.address.testutil.TypicalContacts.BOB;
+import static seedu.planner.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.planner.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.planner.testutil.Assert.assertThrows;
+import static seedu.planner.testutil.TypicalContacts.ALICE;
+import static seedu.planner.testutil.TypicalContacts.BOB;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,9 +15,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.model.contact.exceptions.ContactNotFoundException;
-import seedu.address.model.contact.exceptions.DuplicateContactException;
-import seedu.address.testutil.ContactBuilder;
+import seedu.planner.model.contact.exceptions.ContactNotFoundException;
+import seedu.planner.model.contact.exceptions.DuplicateContactException;
+import seedu.planner.testutil.ContactBuilder;
 
 public class UniqueContactListTest {
 

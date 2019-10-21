@@ -1,10 +1,10 @@
-package seedu.address.logic.commands;
+package seedu.planner.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.testutil.Assert.assertThrows;
+import static seedu.planner.testutil.Assert.assertThrows;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -16,19 +16,19 @@ import java.util.function.Predicate;
 import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
-import seedu.address.commons.core.GuiSettings;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
-import seedu.address.model.Planner;
-import seedu.address.model.ReadOnlyPlanner;
-import seedu.address.model.ReadOnlyUserPrefs;
-import seedu.address.model.accommodation.Accommodation;
-import seedu.address.model.activity.Activity;
-import seedu.address.model.contact.Contact;
-import seedu.address.model.contact.Phone;
-import seedu.address.model.day.Day;
-import seedu.address.model.day.Itinerary;
-import seedu.address.testutil.ContactBuilder;
+import seedu.planner.commons.core.GuiSettings;
+import seedu.planner.logic.commands.exceptions.CommandException;
+import seedu.planner.model.Model;
+import seedu.planner.model.Planner;
+import seedu.planner.model.ReadOnlyPlanner;
+import seedu.planner.model.ReadOnlyUserPrefs;
+import seedu.planner.model.accommodation.Accommodation;
+import seedu.planner.model.activity.Activity;
+import seedu.planner.model.contact.Contact;
+import seedu.planner.model.contact.Phone;
+import seedu.planner.model.day.Day;
+import seedu.planner.model.day.Itinerary;
+import seedu.planner.testutil.ContactBuilder;
 
 public class AddContactCommandTest {
 

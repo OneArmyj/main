@@ -1,7 +1,7 @@
-package seedu.address.testutil;
+package seedu.planner.testutil;
 
-import seedu.address.model.Planner;
-import seedu.address.model.contact.Contact;
+import seedu.planner.model.Planner;
+import seedu.planner.model.contact.Contact;
 
 /**
  * A utility class to help with building Addressbook objects.

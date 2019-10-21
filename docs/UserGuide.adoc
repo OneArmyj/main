@@ -15,6 +15,7 @@ endif::[]
 :repoURL: https://github.com/AY1920S1-CS2103T-T09-1/main
 
 By: `Team CS2103T T09-1`      Since: `Aug 2019`      License: `MIT`
+By: `Team CS2103T T09-1`      Since: `Aug 2019`      License: `MIT`
 
 == Introduction
 

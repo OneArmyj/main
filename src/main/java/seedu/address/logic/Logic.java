@@ -11,6 +11,7 @@ import seedu.address.model.ReadOnlyPlanner;
 import seedu.address.model.accommodation.Accommodation;
 import seedu.address.model.activity.Activity;
 import seedu.address.model.contact.Contact;
+import seedu.address.model.day.Day;
 
 /**
  * API of the Logic component
@@ -40,6 +41,9 @@ public interface Logic {
 
     /** Returns an unmodifiable view of the filtered list of contacts */
     ObservableList<Contact> getFilteredContactList();
+
+    /** Returns an unmodifiable view of the filtered list of contacts */
+    ObservableList<Day> getFilteredItinerary();
 
     /**
      * Returns the user prefs' address book file path.

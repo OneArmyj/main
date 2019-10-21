@@ -17,6 +17,7 @@ import seedu.address.model.ReadOnlyPlanner;
 import seedu.address.model.accommodation.Accommodation;
 import seedu.address.model.activity.Activity;
 import seedu.address.model.contact.Contact;
+import seedu.address.model.day.Day;
 import seedu.address.storage.Storage;
 
 /**
@@ -71,6 +72,11 @@ public class LogicManager implements Logic {
     @Override
     public ObservableList<Contact> getFilteredContactList() {
         return model.getFilteredContactList();
+    }
+
+    @Override
+    public ObservableList<Day> getFilteredItinerary() {
+        return model.getFilteredItinerary();
     }
 
     @Override

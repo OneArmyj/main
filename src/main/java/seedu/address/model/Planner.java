@@ -291,6 +291,7 @@ public class Planner implements ReadOnlyPlanner {
 
         setContacts(newData.getContactList());
     }
+
     //// util methods
 
     @Override

@@ -16,7 +16,7 @@ import seedu.address.model.field.Name;
 /**
  * Itinerary class helps to manage the list of days in an Planner.
  */
-public class Itinerary implements Iterable<Day> {
+public class UniqueDayList implements Iterable<Day> {
     private final ObservableList<Day>
             internalList = FXCollections.observableArrayList();
     private final ObservableList<Day> internalUnmodifiableList =
@@ -25,10 +25,6 @@ public class Itinerary implements Iterable<Day> {
     private Name name;
     private LocalDate startDate;
 
-    public Itinerary() {
-        this.name = new Name("Untitled");
-        this.startDate = LocalDate.now();
-    }
     /**
      * Returns true if the list contains an equivalent contacts as the given argument.
      */
@@ -38,9 +34,20 @@ public class Itinerary implements Iterable<Day> {
     }
 
     /**
+     * Adds a day to the planner
+     */
+    public void add(Day d) {
+        requireNonNull(d);
+
+        if (!contains(d)) {
+            internalList.add(d);
+        }
+    }
+
+    /**
      * Adds a number of days to the planner.
      */
-    public void add(int numDays) {
+    public void adds(int numDays) {
         requireNonNull(numDays);
         for (int i = 0; i < numDays; i++) {
             Day toAdd = new Day();
@@ -48,25 +55,7 @@ public class Itinerary implements Iterable<Day> {
         }
     }
 
-    public Name getName() {
-        return this.name;
-    }
-
-    public LocalDate getStartDate() {
-        return this.startDate;
-    }
-
-    public void setName(Name name) {
-        requireNonNull(name);
-        this.name = name;
-    }
-
-    public void setStartDate(LocalDate date) {
-        requireNonNull(date);
-        this.startDate = date;
-    }
-
-    public void setDays(Itinerary replacement) {
+    public void setDays(UniqueDayList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
     }
@@ -77,9 +66,9 @@ public class Itinerary implements Iterable<Day> {
      */
     public void setDays(List<Day> days) {
         requireAllNonNull(days);
-        //if (!daysAreUnique(days)) {
-        //    throw new DuplicateDayException();
-        //}
+        if (!daysAreUnique(days)) {
+            throw new DuplicateDayException();
+        }
 
         internalList.setAll(days);
     }
@@ -132,8 +121,8 @@ public class Itinerary implements Iterable<Day> {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Itinerary // instanceof handles nulls
-                && internalList.equals(((Itinerary) other).internalList));
+                || (other instanceof UniqueDayList // instanceof handles nulls
+                && internalList.equals(((UniqueDayList) other).internalList));
     }
 
     @Override

@@ -7,7 +7,10 @@ import seedu.planner.commons.core.GuiSettings;
 import seedu.planner.logic.commands.CommandResult;
 import seedu.planner.logic.commands.exceptions.CommandException;
 import seedu.planner.logic.parser.exceptions.ParseException;
-import seedu.planner.model.ReadOnlyPlanner;
+import seedu.planner.model.ReadOnlyAccommodation;
+import seedu.planner.model.ReadOnlyActivity;
+import seedu.planner.model.ReadOnlyContact;
+import seedu.planner.model.ReadOnlyItinerary;
 import seedu.planner.model.accommodation.Accommodation;
 import seedu.planner.model.activity.Activity;
 import seedu.planner.model.contact.Contact;
@@ -27,28 +30,64 @@ public interface Logic {
     CommandResult execute(String commandText) throws CommandException, ParseException;
 
     /**
-     * Returns the Planner.
+     * Returns the Accommodation.
      *
-     * @see seedu.planner.model.Model#getPlanner()
+     * @see seedu.planner.model.Model#getAccommodations()
      */
-    ReadOnlyPlanner getPlanner();
+    ReadOnlyAccommodation getAccommodations();
 
     /** Returns an unmodifiable view of the filtered list of accommodations */
     ObservableList<Accommodation> getFilteredAccommodationList();
 
+    /**
+     * Returns the user prefs' accommodation file path.
+     */
+    Path getAccommodationFilePath();
+
+    /**
+     * Returns the Activity.
+     *
+     * @see seedu.planner.model.Model#getActivities()
+     */
+    ReadOnlyActivity getActivities();
+
     /** Returns an unmodifiable view of the filtered list of activities */
     ObservableList<Activity> getFilteredActivityList();
+
+    /**
+     * Returns the user prefs' activity file path.
+     */
+    Path getActivityFilePath();
+
+    /**
+     * Returns the Contact.
+     *
+     * @see seedu.planner.model.Model#getContacts()
+     */
+    ReadOnlyContact getContacts();
 
     /** Returns an unmodifiable view of the filtered list of contacts */
     ObservableList<Contact> getFilteredContactList();
 
-    /** Returns an unmodifiable view of the filtered list of contacts */
+    /**
+     * Returns the user prefs' contact file path.
+     */
+    Path getContactFilePath();
+
+    /**
+     * Returns the Itinerary.
+     *
+     * @see seedu.planner.model.Model#getItinerary()
+     */
+    ReadOnlyItinerary getItinerary();
+
+    /** Returns an unmodifiable view of the filtered itinerary */
     ObservableList<Day> getFilteredItinerary();
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' itinerary file path.
      */
-    Path getPlannerFilePath();
+    Path getItineraryFilePath();
 
     /**
      * Returns the user prefs' GUI settings.

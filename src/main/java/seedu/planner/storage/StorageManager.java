@@ -7,7 +7,6 @@ import java.util.logging.Logger;
 
 import seedu.planner.commons.core.LogsCenter;
 import seedu.planner.commons.exceptions.DataConversionException;
-import seedu.planner.model.ReadOnlyPlanner;
 import seedu.planner.model.ReadOnlyUserPrefs;
 import seedu.planner.model.UserPrefs;
 

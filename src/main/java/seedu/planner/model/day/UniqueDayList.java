@@ -30,9 +30,20 @@ public class UniqueDayList implements Iterable<Day> {
     }
 
     /**
+     * Adds a day to the planner
+     */
+    public void add(Day d) {
+        requireNonNull(d);
+
+        if (!contains(d)) {
+            internalList.add(d);
+        }
+    }
+
+    /**
      * Adds a number of days to the planner.
      */
-    public void add(int numDays) {
+    public void adds(int numDays) {
         requireNonNull(numDays);
         for (int i = 0; i < numDays; i++) {
             Day toAdd = new Day(new ArrayList<>());

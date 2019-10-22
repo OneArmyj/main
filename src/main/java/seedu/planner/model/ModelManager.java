@@ -126,7 +126,7 @@ public class ModelManager implements Model {
     @Override
     public void setItineraryFilePath(Path itineraryFilePath) {
         requireNonNull(itineraryFilePath);
-        userPrefs.setAccommodationFilePath(itineraryFilePath);
+        userPrefs.setItineraryFilePath(itineraryFilePath);
     }
 
     //=========== AccommodationManager =========================================================================

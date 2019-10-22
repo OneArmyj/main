@@ -57,11 +57,18 @@ public class Itinerary implements ReadOnlyItinerary {
     }
 
     /**
+     * Adds a day to the itinerary
+     */
+    public void addDay(Day d) {
+        this.days.add(d);
+    }
+
+    /**
      * Adds a contacts to the address book.
      * The contacts must not already exist in the address book.
      */
     public void addDays(int n) {
-        this.days.add(n);
+        this.days.adds(n);
     }
 
     /**

@@ -3,7 +3,6 @@ package seedu.address.model.day;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,7 +10,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.day.exceptions.DayNotFoundException;
 import seedu.address.model.day.exceptions.DuplicateDayException;
-import seedu.address.model.field.Name;
 
 /**
  * Itinerary class helps to manage the list of days in an Planner.
@@ -21,9 +19,6 @@ public class UniqueDayList implements Iterable<Day> {
             internalList = FXCollections.observableArrayList();
     private final ObservableList<Day> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);
-
-    private Name name;
-    private LocalDate startDate;
 
     /**
      * Returns true if the list contains an equivalent contacts as the given argument.

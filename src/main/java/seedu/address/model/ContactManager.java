@@ -37,7 +37,7 @@ public class ContactManager implements ReadOnlyContact {
      */
     public ContactManager(ReadOnlyContact toBeCopied) {
         this();
-        resetDataContact(toBeCopied);;
+        resetDataContact(toBeCopied);
     }
 
     //// For CONTACT list overwrite operations

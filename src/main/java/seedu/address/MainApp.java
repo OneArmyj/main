@@ -16,6 +16,7 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
 
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AccommodationManager;
 import seedu.address.model.ActivityManager;
 import seedu.address.model.ContactManager;

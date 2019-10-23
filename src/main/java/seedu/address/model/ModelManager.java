@@ -258,7 +258,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void setName(Name name) {
+    public void setItineraryName(Name name) {
         this.itinerary.setName(name);
     }
 
@@ -268,7 +268,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void setStartDate(LocalDate date) {
+    public void setItineraryStartDate(LocalDate date) {
         this.itinerary.setStartDate(date);
     }
 

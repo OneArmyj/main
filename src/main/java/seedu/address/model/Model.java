@@ -259,7 +259,7 @@ public interface Model {
      * Sets a new Name for the Itinerary
      * @param name new name to be set
      */
-    void setName(Name name);
+    void setItineraryName(Name name);
 
     /**
      * Retrieves the start date of the Itinerary
@@ -271,7 +271,7 @@ public interface Model {
      * Sets a new StartDate for the Itinerary
      * @param date new start date to be set
      */
-    void setStartDate(LocalDate date);
+    void setItineraryStartDate(LocalDate date);
 
     /**
      * Replaces current Itinerary data with the data in {@code itinerary}.

@@ -142,7 +142,7 @@ public class StorageManager implements Storage {
 
     @Override
     public void saveContact(ReadOnlyContact contact) throws IOException {
-        saveContact(contact, activityStorage.getActivityFilePath());
+        saveContact(contact, contactStorage.getContactFilePath());
     }
 
     @Override

@@ -81,7 +81,7 @@ public class JsonAdaptedActivity {
         }
         final Address modelAddress = address != null ? new Address(address) : null;
 
-        final Contact modelContact = contact.toModelType();
+        final Contact modelContact = (contact == null) ? null : contact.toModelType();
 
         final Set<Tag> modelTags = new HashSet<>(accommodationTags);
         return new Activity(modelName, modelAddress, modelContact, modelTags);

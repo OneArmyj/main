@@ -19,18 +19,18 @@ import seedu.address.model.itineraryitem.activity.Activity;
 @JsonRootName(value = "activityManager")
 public class JsonSerializableActivity {
 
-    public static final String MESSAGE_DUPLICATE_ACTIVITY = "Activities list contains duplicate "
-        + "accommodations(s).";
+    public static final String MESSAGE_DUPLICATE_ACTIVITY = "Activities list contains one or more duplicate "
+        + "activity.";
 
     private final List<JsonAdaptedActivity> activities = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonSerializableActivity} with the given accommodations.
+     * Constructs a {@code JsonSerializableActivity} with the given activities.
      */
     @JsonCreator
     public JsonSerializableActivity(
-        @JsonProperty("activity") List<JsonAdaptedActivity> accommodations) {
-        this.activities.addAll(accommodations);
+        @JsonProperty("activities") List<JsonAdaptedActivity> activities) {
+        this.activities.addAll(activities);
     }
 
     /**

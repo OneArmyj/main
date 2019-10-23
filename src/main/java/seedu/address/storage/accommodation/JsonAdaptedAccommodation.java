@@ -80,7 +80,7 @@ public class JsonAdaptedAccommodation {
         }
         final Address modelAddress = address != null ? new Address(address) : null;
 
-        final Contact modelContact = contact.toModelType();
+        final Contact modelContact = (contact == null) ? null : contact.toModelType();
 
         final Set<Tag> modelTags = new HashSet<>(accommodationTags);
         return new Accommodation(modelName, modelAddress, modelContact, modelTags);

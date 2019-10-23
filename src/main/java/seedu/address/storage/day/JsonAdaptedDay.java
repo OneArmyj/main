@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.day.ActivityWithTime;
 import seedu.address.model.day.Day;
@@ -53,7 +52,7 @@ public class JsonAdaptedDay {
                 dayActivities.add(activities.toModelType());
             }
             return new Day(dayActivities);
-        } catch(CommandException ce) {
+        } catch (CommandException ce) {
             throw new IllegalValueException(ce.getMessage());
         }
 

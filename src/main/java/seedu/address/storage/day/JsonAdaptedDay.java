@@ -46,17 +46,11 @@ public class JsonAdaptedDay {
      * @throws IllegalValueException if there were any data constraints violated in the adapted contacts.
      */
     public Day toModelType() throws IllegalValueException {
-        try {
-            final List<ActivityWithTime> dayActivities = new ArrayList<>();
-            for (JsonAdaptedActivityWithTime activities : activityWithTimes) {
-                dayActivities.add(activities.toModelType());
-            }
-            return new Day(dayActivities);
-        } catch (CommandException ce) {
-            throw new IllegalValueException(ce.getMessage());
+        final List<ActivityWithTime> dayActivities = new ArrayList<>();
+        for (JsonAdaptedActivityWithTime activities : activityWithTimes) {
+            dayActivities.add(activities.toModelType());
         }
-
-
+        return new Day(dayActivities);
     }
 
 }

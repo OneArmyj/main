@@ -1,10 +1,12 @@
-/*
 package seedu.address.logic.commands;
 
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showContactAtIndex;
-import static seedu.address.testutil.TypicalContacts.getTypicalPlanner;
+import static seedu.address.testutil.accommodation.TypicalAccommodations.getTypicalAccommodationManager;
+import static seedu.address.testutil.activity.TypicalActivity.getTypicalActivityManager;
+import static seedu.address.testutil.contact.TypicalContacts.getTypicalContactManager;
+import static seedu.address.testutil.day.TypicalDays.getTypicalItinerary;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_CONTACT;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +18,7 @@ import seedu.address.model.UserPrefs;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for ListContactCommand.
- *
+ */
 public class ListContactCommandTest {
 
     private Model model;
@@ -24,8 +26,10 @@ public class ListContactCommandTest {
 
     @BeforeEach
     public void setUp() {
-        model = new ModelManager(getTypicalPlanner(), new UserPrefs());
-        expectedModel = new ModelManager(model.getPlanner(), new UserPrefs());
+        model = new ModelManager(getTypicalAccommodationManager(), getTypicalActivityManager(),
+                getTypicalContactManager(), getTypicalItinerary(), new UserPrefs());
+        expectedModel = new ModelManager(model.getAccommodations(), model.getActivities(),
+                model.getContacts(), model.getItinerary(), new UserPrefs());
     }
 
     @Test
@@ -39,5 +43,3 @@ public class ListContactCommandTest {
         assertCommandSuccess(new ListContactCommand(), model, ListContactCommand.MESSAGE_SUCCESS, expectedModel);
     }
 }
-
- */

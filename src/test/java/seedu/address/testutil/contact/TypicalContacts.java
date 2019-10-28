@@ -16,7 +16,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.ContactManager;
-import seedu.address.model.ReadOnlyContact;
 import seedu.address.model.contact.Contact;
 
 /**

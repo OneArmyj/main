@@ -1,13 +1,12 @@
 package seedu.address.logic.commands;
 
-
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showContactAtIndex;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_CONTACT;
 import static seedu.address.testutil.accommodation.TypicalAccommodations.getTypicalAccommodationManager;
 import static seedu.address.testutil.activity.TypicalActivity.getTypicalActivityManager;
 import static seedu.address.testutil.contact.TypicalContacts.getTypicalContactManager;
 import static seedu.address.testutil.day.TypicalDays.getTypicalItinerary;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_CONTACT;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

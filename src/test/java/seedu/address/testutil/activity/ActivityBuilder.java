@@ -20,7 +20,6 @@ public class ActivityBuilder {
 
     public static final String DEFAULT_ACTIVITY_NAME = "Visit Golden Pavillion";
     public static final String DEFAULT_ACTIVITY_ADDRESS = "123, Jurong West Ave 6, #08-111";
-    
     public static final String DEFAULT_CONTACT_PHONE = "91170081";
     public static final String DEFAULT_CONTACT_EMAIL = "sam1987@gmail.com";
 

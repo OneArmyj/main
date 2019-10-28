@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AccommodationManager;
 import seedu.address.model.ActivityManager;
 import seedu.address.model.ContactManager;

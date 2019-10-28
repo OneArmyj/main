@@ -1,18 +1,9 @@
 package seedu.address.testutil.day;
 
 import java.time.LocalTime;
-import java.util.HashSet;
-import java.util.Set;
 
-import seedu.address.model.contact.Contact;
-import seedu.address.model.contact.Email;
-import seedu.address.model.contact.Phone;
 import seedu.address.model.day.ActivityWithTime;
-import seedu.address.model.field.Address;
-import seedu.address.model.field.Name;
 import seedu.address.model.itineraryitem.activity.Activity;
-import seedu.address.model.tag.Tag;
-import seedu.address.model.util.SampleDataUtil;
 import seedu.address.testutil.activity.TypicalActivity;
 
 /**

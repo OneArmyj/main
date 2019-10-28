@@ -28,10 +28,10 @@ public class ClearCommandTest {
 
     @Test
     public void execute_nonEmptyPlanner_success() {
-        Model model = new ModelManager(getTypicalAccommodationManager(), getTypicalActivityManager()
-                , getTypicalContactManager(), getTypicalItinerary(), new UserPrefs());
-        Model expectedModel = new ModelManager(getTypicalAccommodationManager(), getTypicalActivityManager()
-                , getTypicalContactManager(), getTypicalItinerary(), new UserPrefs());
+        Model model = new ModelManager(getTypicalAccommodationManager(), getTypicalActivityManager(),
+                getTypicalContactManager(), getTypicalItinerary(), new UserPrefs());
+        Model expectedModel = new ModelManager(getTypicalAccommodationManager(), getTypicalActivityManager(),
+                getTypicalContactManager(), getTypicalItinerary(), new UserPrefs());
 
         expectedModel.setAccommodations(new AccommodationManager());
         expectedModel.setActivities(new ActivityManager());

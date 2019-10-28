@@ -21,7 +21,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.ActivityManager;
-import seedu.address.model.ReadOnlyActivity;
 import seedu.address.model.itineraryitem.activity.Activity;
 
 /**

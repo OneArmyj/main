@@ -24,7 +24,7 @@ public class Day {
         Timetable timetable1;
         try {
             timetable1 = new Timetable(activitiesForDay);
-        } catch(CommandException ce) {
+        } catch (CommandException ce) {
             timetable1 = new Timetable();
         }
         this.timetable = timetable1;

@@ -7,7 +7,6 @@ import static seedu.address.testutil.activity.TypicalActivity.getTypicalActivity
 import static seedu.address.testutil.contact.TypicalContacts.getTypicalContactManager;
 import static seedu.address.testutil.day.TypicalDays.getTypicalItinerary;
 
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

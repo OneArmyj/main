@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.Itinerary;
-import seedu.address.model.ReadOnlyItinerary;
 import seedu.address.model.day.Day;
 
 /**

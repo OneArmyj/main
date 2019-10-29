@@ -8,6 +8,7 @@ import seedu.address.logic.commands.InitCommand;
 import seedu.address.logic.commands.UndoableCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.events.add.AddEventFactory;
+import seedu.address.logic.events.add.DeleteEventFactory;
 
 public class EventFactory {
     public static Event parse(UndoableCommand command) throws CommandException {

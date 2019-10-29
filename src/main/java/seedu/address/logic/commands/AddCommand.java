@@ -3,7 +3,7 @@ package seedu.address.logic.commands;
 /**
  * Represents AddActivityCommand, AddContactCommand and AddDayCommand.
  */
-public abstract class AddCommand extends Command implements UndoableCommand {
+public abstract class AddCommand extends UndoableCommand {
 
     public static final String COMMAND_WORD = "add";
 

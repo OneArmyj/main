@@ -1,8 +1,8 @@
 package seedu.address.logic.events.add;
 
 import seedu.address.logic.commands.AddAccommodationCommand;
-import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteAccommodationCommand;
+import seedu.address.logic.commands.UndoableCommand;
 import seedu.address.logic.events.Event;
 import seedu.address.model.itineraryitem.accommodation.Accommodation;
 
@@ -13,11 +13,11 @@ public class AddAccommodationEvent implements Event {
         this.accommodationAdded = accommodationAdded;
     }
 
-    public Command undo() {
+    public UndoableCommand undo() {
         return new DeleteAccommodationCommand(accommodationAdded);
     }
 
-    public Command redo() {
+    public UndoableCommand redo() {
         return new AddAccommodationCommand(accommodationAdded);
     }
 }

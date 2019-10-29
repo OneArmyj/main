@@ -3,7 +3,7 @@ package seedu.address.logic.commands;
 /**
  * Represents EditActivityCommand and EditContactCommand.
  */
-public abstract class EditCommand extends Command implements UndoableCommand {
+public abstract class EditCommand extends UndoableCommand {
 
     public static final String COMMAND_WORD = "edit";
 

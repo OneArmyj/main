@@ -15,7 +15,7 @@ import seedu.address.model.field.Name;
 /**
  * Adds a person to the address book.
  */
-public class InitCommand extends Command implements UndoableCommand {
+public class InitCommand extends UndoableCommand {
 
     public static final String COMMAND_WORD = "init";
 

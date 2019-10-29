@@ -11,11 +11,12 @@ import seedu.address.model.Model;
 /**
  * Clears the address book.
  */
-public class ClearCommand extends Command {
+public class ClearCommand extends Command implements UndoableCommand {
 
     public static final String COMMAND_WORD = "clear";
     public static final String MESSAGE_SUCCESS = "Data has been cleared!";
 
+    public String getCommandWord() { return COMMAND_WORD; }
 
     @Override
     public CommandResult execute(Model model) {

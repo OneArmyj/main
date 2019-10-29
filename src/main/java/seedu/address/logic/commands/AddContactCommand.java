@@ -47,6 +47,15 @@ public class AddContactCommand extends AddCommand {
         toAdd = contact;
     }
 
+    public Contact getToAdd() {
+        return toAdd;
+    }
+
+    @Override
+    public String getSecondCommandWord() {
+        return SECOND_COMMAND_WORD;
+    }
+
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);

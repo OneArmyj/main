@@ -7,6 +7,7 @@ import java.util.List;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.ParserUtil;
 import seedu.address.model.Model;
 import seedu.address.model.itineraryitem.accommodation.Accommodation;
 
@@ -24,9 +25,16 @@ public class DeleteAccommodationCommand extends DeleteCommand {
     public static final String MESSAGE_DELETE_ACCOMMODATION_SUCCESS = "Deleted Accommodation: %1$s";
 
     private final Index targetIndex;
+    private final Accommodation toDelete;
 
     public DeleteAccommodationCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
+        toDelete = null;
+    }
+
+    public DeleteAccommodationCommand(Accommodation accommodation) {
+        toDelete = accommodation;
+        targetIndex = null;
     }
 
     @Override
@@ -34,12 +42,16 @@ public class DeleteAccommodationCommand extends DeleteCommand {
         requireNonNull(model);
 
         List<Accommodation> lastShownList = model.getFilteredAccommodationList();
+        Accommodation accommodationToDelete;
 
-        if (targetIndex.getZeroBased() >= lastShownList.size()) {
+        if (toDelete != null) {
+            accommodationToDelete = toDelete;
+        } else if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_ACCOMMODATION_DISPLAYED_INDEX);
+        } else {
+            accommodationToDelete = lastShownList.get(targetIndex.getZeroBased());
         }
 
-        Accommodation accommodationToDelete = lastShownList.get(targetIndex.getZeroBased());
         model.deleteAccommodation(accommodationToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_ACCOMMODATION_SUCCESS, accommodationToDelete));
     }

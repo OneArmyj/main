@@ -15,7 +15,7 @@ import seedu.address.model.field.Name;
 /**
  * Adds a person to the address book.
  */
-public class InitCommand extends Command {
+public class InitCommand extends Command implements UndoableCommand {
 
     public static final String COMMAND_WORD = "init";
 
@@ -30,6 +30,8 @@ public class InitCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Planner initialised with name:%1$s and"
             + " start date:%2$s";
+
+    public String getCommandWord() { return COMMAND_WORD; }
 
     private final Name name;
     private final LocalDate startDate;

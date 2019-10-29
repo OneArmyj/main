@@ -24,9 +24,16 @@ public class DeleteActivityCommand extends DeleteCommand {
     public static final String MESSAGE_DELETE_ACTIVITY_SUCCESS = "Deleted Activity: %1$s";
 
     private final Index targetIndex;
+    private final Activity toDelete;
 
     public DeleteActivityCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
+        toDelete = null;
+    }
+
+    public DeleteActivityCommand(Activity activity) {
+        toDelete = activity;
+        targetIndex = null;
     }
 
     @Override
@@ -34,12 +41,16 @@ public class DeleteActivityCommand extends DeleteCommand {
         requireNonNull(model);
 
         List<Activity> lastShownList = model.getFilteredActivityList();
+        Activity activityToDelete;
 
-        if (targetIndex.getZeroBased() >= lastShownList.size()) {
+        if (toDelete != null) {
+            activityToDelete = toDelete;
+        } else if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_ACTIVITY_DISPLAYED_INDEX);
+        } else {
+            activityToDelete = lastShownList.get(targetIndex.getZeroBased());
         }
 
-        Activity activityToDelete = lastShownList.get(targetIndex.getZeroBased());
         model.deleteActivity(activityToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_ACTIVITY_SUCCESS, activityToDelete));
     }

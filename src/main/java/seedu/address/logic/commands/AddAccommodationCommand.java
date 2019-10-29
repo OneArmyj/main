@@ -42,6 +42,15 @@ public class AddAccommodationCommand extends AddCommand {
         toAdd = accommodation;
     }
 
+    public Accommodation getToAdd() {
+        return toAdd;
+    }
+
+    @Override
+    public String getSecondCommandWord() {
+        return SECOND_COMMAND_WORD;
+    }
+
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);

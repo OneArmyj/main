@@ -12,4 +12,6 @@ public abstract class DeleteCommand extends UndoableCommand {
             + "Parameters: INDEX (must be a positive integer)\n";
 
     public String getCommandWord() { return COMMAND_WORD; }
+
+    public abstract String getSecondCommandWord();
 }

@@ -1,9 +1,9 @@
-package seedu.address.logic.events.add;
+package seedu.address.logic.events.delete;
 
-import seedu.address.logic.commands.AddAccommodationCommand;
-import seedu.address.logic.commands.AddActivityCommand;
-import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.AddContactCommand;
+import seedu.address.logic.commands.DeleteAccommodationCommand;
+import seedu.address.logic.commands.DeleteActivityCommand;
+import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.DeleteContactCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.events.Event;
 import seedu.address.model.contact.Contact;
@@ -13,21 +13,21 @@ import seedu.address.model.itineraryitem.activity.Activity;
 public class DeleteEventFactory {
     public static final String MESSAGE_NOT_UNDOABLE = "The following command \'%1$s\' \'%2$s\' is not undoable";
 
-    public static Event parse(AddCommand command) throws CommandException {
+    public static Event parse(DeleteCommand command) throws CommandException {
         String secondCommandWord = command.getSecondCommandWord();
 
         switch(secondCommandWord) {
-        case (AddAccommodationCommand.SECOND_COMMAND_WORD):
-            AddAccommodationCommand tempCommand1 = (AddAccommodationCommand) command;
-            return generateAddAccommodationEvent(tempCommand1.getToAdd());
+        case (DeleteAccommodationCommand.SECOND_COMMAND_WORD):
+            DeleteAccommodationCommand tempCommand1 = (DeleteAccommodationCommand) command;
+            return generateDeleteAccommodationEvent(tempCommand1.getToDelete());
 
-        case (AddActivityCommand.SECOND_COMMAND_WORD):
-            AddActivityCommand tempCommand2 = (AddActivityCommand) command;
-            return generateAddActivityEvent(tempCommand2.getToAdd());
+        case (DeleteActivityCommand.SECOND_COMMAND_WORD):
+            DeleteActivityCommand tempCommand2 = (DeleteActivityCommand) command;
+            return generateDeleteActivityEvent(tempCommand2.getToDelete());
 
-        case (AddContactCommand.SECOND_COMMAND_WORD):
-            AddContactCommand tempCommand3 = (AddContactCommand) command;
-            return generateAddContactEvent(tempCommand3.getToAdd());
+        case (DeleteContactCommand.SECOND_COMMAND_WORD):
+            DeleteContactCommand tempCommand3 = (DeleteContactCommand) command;
+            return generateDeleteContactEvent(tempCommand3.getToDelete());
 
         default:
             throw new CommandException(
@@ -36,28 +36,28 @@ public class DeleteEventFactory {
         }
 
         /*
-        case(AddDayCommand.SECOND_COMMAND_WORD):
-            AddDayCommand tempCommand4 = (AddDayCommand)command;
-            generateAddDayEvent(tempCommand4.getToAdd());
+        case(DeleteDayCommand.SECOND_COMMAND_WORD):
+            DeleteDayCommand tempCommand4 = (DeleteDayCommand)command;
+            generateDeleteDayEvent(tempCommand4.getToDelete());
         }
         */
     }
 
-    public static AddAccommodationEvent generateAddAccommodationEvent(Accommodation accommodationAdded) {
-        return new AddAccommodationEvent(accommodationAdded);
+    public static DeleteAccommodationEvent generateDeleteAccommodationEvent(Accommodation accommodationDeleteed) {
+        return new DeleteAccommodationEvent(accommodationDeleteed);
     }
 
-    public static AddActivityEvent generateAddActivityEvent(Activity activityAdded) {
-        return new AddActivityEvent(activityAdded);
+    public static DeleteActivityEvent generateDeleteActivityEvent(Activity activityDeleteed) {
+        return new DeleteActivityEvent(activityDeleteed);
     }
 
-    public static AddContactEvent generateAddContactEvent(Contact contactAdded) {
-        return new AddContactEvent(contactAdded);
+    public static DeleteContactEvent generateDeleteContactEvent(Contact contactDeleteed) {
+        return new DeleteContactEvent(contactDeleteed);
     }
 
     /*
-    public static AddDayEvent generateAddDayEvent(int daysAdded) {
-        return new AddDayEvent(daysAdded);
+    public static DeleteDayEvent generateDeleteDayEvent(int daysDeleteed) {
+        return new DeleteDayEvent(daysDeleteed);
     }
     */
 }

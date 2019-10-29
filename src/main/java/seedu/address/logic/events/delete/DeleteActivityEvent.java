@@ -1,23 +1,23 @@
-package seedu.address.logic.events.add;
+package seedu.address.logic.events.delete;
 
 import seedu.address.logic.commands.AddActivityCommand;
-import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteActivityCommand;
+import seedu.address.logic.commands.UndoableCommand;
 import seedu.address.logic.events.Event;
 import seedu.address.model.itineraryitem.activity.Activity;
 
 public class DeleteActivityEvent implements Event {
-    private final Activity activityAdded;
+    private final Activity activityDeleted;
 
-    public AddActivityEvent(Activity activityAdded) {
-        this.activityAdded = activityAdded;
+    public DeleteActivityEvent(Activity activityDeleted) {
+        this.activityDeleted = activityDeleted;
     }
 
-    public Command undo() {
-        return new DeleteActivityCommand(activityAdded);
+    public UndoableCommand undo() {
+        return new AddActivityCommand(activityDeleted);
     }
 
-    public Command redo() {
-        return new AddActivityCommand(activityAdded);
+    public UndoableCommand redo() {
+        return new DeleteActivityCommand(activityDeleted);
     }
 }

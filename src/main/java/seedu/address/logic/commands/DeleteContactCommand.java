@@ -37,6 +37,15 @@ public class DeleteContactCommand extends DeleteCommand {
         targetIndex = null;
     }
 
+    public Contact getToDelete() {
+        return toDelete;
+    }
+
+    @Override
+    public String getSecondCommandWord() {
+        return SECOND_COMMAND_WORD;
+    }
+
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);

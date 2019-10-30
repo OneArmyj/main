@@ -11,4 +11,6 @@ public abstract class EditCommand extends UndoableCommand {
             + "depending on the following second command word and arguments.";
 
     public String getCommandWord() { return COMMAND_WORD; }
+
+    public abstract String getSecondCommandWord();
 }

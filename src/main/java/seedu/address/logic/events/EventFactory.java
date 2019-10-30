@@ -9,9 +9,16 @@ import seedu.address.logic.commands.UndoableCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.events.add.AddEventFactory;
 import seedu.address.logic.events.delete.DeleteEventFactory;
+import seedu.address.logic.events.edit.EditEventFactory;
+import seedu.address.model.Model;
+
+import static java.util.Objects.requireNonNull;
 
 public class EventFactory {
-    public static Event parse(UndoableCommand command) throws CommandException {
+    public static Event parse(UndoableCommand command, Model model) throws CommandException {
+        requireNonNull(command);
+        requireNonNull(model);
+
         String commandWord = command.getCommandWord();
 
         switch(commandWord) {
@@ -22,7 +29,7 @@ public class EventFactory {
             DeleteEventFactory.parse((DeleteCommand)command);
 
         case (EditCommand.COMMAND_WORD):
-            EditEventFactory.parse(command);
+            EditEventFactory.parse((EditCommand)command, model);
 
         case (ClearCommand.COMMAND_WORD):
             parseClearCommand(command);

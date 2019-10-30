@@ -53,9 +53,11 @@ public class LogicManager implements Logic {
         CommandResult commandResult;
         Command command = plannerParser.parseCommand(commandText);
 
-        if (!(command instanceof UndoCommand) && !(command instanceof RedoCommand)) {
-            Event undoableEvent = EventFactory.parse((UndoableCommand)command);
+        if (command instanceof UndoableCommand) {
+            Event undoableEvent = EventFactory.parse((UndoableCommand)command, model);
             CommandHistory.addToUndoStack(undoableEvent);
+        }
+        if (!(command instanceof UndoCommand && !(command instanceof RedoCommand))) {
             CommandHistory.clearRedoStack();
         }
         commandResult = command.execute(model);

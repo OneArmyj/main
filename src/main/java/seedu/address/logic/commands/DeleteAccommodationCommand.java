@@ -36,8 +36,8 @@ public class DeleteAccommodationCommand extends DeleteCommand {
         targetIndex = null;
     }
 
-    public Accommodation getToDelete() {
-        return toDelete;
+    public Index getTargetIndex() {
+        return targetIndex;
     }
 
     @Override
@@ -63,7 +63,6 @@ public class DeleteAccommodationCommand extends DeleteCommand {
         model.deleteAccommodation(accommodationToDelete);
         return new CommandResult(String.format(MESSAGE_DELETE_ACCOMMODATION_SUCCESS, accommodationToDelete));
     }
-
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object

@@ -36,7 +36,7 @@ public class EventFactory {
             return AddEventFactory.parse((AddCommand) command);
 
         case (DeleteCommand.COMMAND_WORD):
-            return DeleteEventFactory.parse((DeleteCommand) command);
+            return DeleteEventFactory.parse((DeleteCommand) command, model);
 
         case (EditCommand.COMMAND_WORD):
             return EditEventFactory.parse((EditCommand) command, model);

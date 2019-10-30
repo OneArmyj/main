@@ -1,14 +1,13 @@
 package seedu.address.logic.events.delete;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.DeleteAccommodationCommand;
 import seedu.address.logic.commands.DeleteActivityCommand;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.DeleteContactCommand;
 import seedu.address.logic.events.Event;
 import seedu.address.logic.events.exceptions.EventException;
-import seedu.address.model.contact.Contact;
-import seedu.address.model.itineraryitem.accommodation.Accommodation;
-import seedu.address.model.itineraryitem.activity.Activity;
+import seedu.address.model.Model;
 
 /**
  * A factory class to generate the corresponding delete Events according to the delete Commands parsed.
@@ -22,21 +21,21 @@ public class DeleteEventFactory {
      * @return Corresponding event representing the delete command parsed.
      * @throws EventException
      */
-    public static Event parse(DeleteCommand command) throws EventException {
+    public static Event parse(DeleteCommand command, Model model) throws EventException {
         String secondCommandWord = command.getSecondCommandWord();
 
         switch(secondCommandWord) {
         case (DeleteAccommodationCommand.SECOND_COMMAND_WORD):
             DeleteAccommodationCommand tempCommand1 = (DeleteAccommodationCommand) command;
-            return generateDeleteAccommodationEvent(tempCommand1.getToDelete());
+            return generateDeleteAccommodationEvent(tempCommand1.getTargetIndex(), model);
 
         case (DeleteActivityCommand.SECOND_COMMAND_WORD):
             DeleteActivityCommand tempCommand2 = (DeleteActivityCommand) command;
-            return generateDeleteActivityEvent(tempCommand2.getToDelete());
+            return generateDeleteActivityEvent(tempCommand2.getTargetIndex(), model);
 
         case (DeleteContactCommand.SECOND_COMMAND_WORD):
             DeleteContactCommand tempCommand3 = (DeleteContactCommand) command;
-            return generateDeleteContactEvent(tempCommand3.getToDelete());
+            return generateDeleteContactEvent(tempCommand3.getTargetIndex(), model);
 
         default:
             throw new EventException(
@@ -52,16 +51,16 @@ public class DeleteEventFactory {
         */
     }
 
-    public static DeleteAccommodationEvent generateDeleteAccommodationEvent(Accommodation accommodationDeleteed) {
-        return new DeleteAccommodationEvent(accommodationDeleteed);
+    public static DeleteAccommodationEvent generateDeleteAccommodationEvent(Index index, Model model) {
+        return new DeleteAccommodationEvent(index, model);
     }
 
-    public static DeleteActivityEvent generateDeleteActivityEvent(Activity activityDeleteed) {
-        return new DeleteActivityEvent(activityDeleteed);
+    public static DeleteActivityEvent generateDeleteActivityEvent(Index index, Model model) {
+        return new DeleteActivityEvent(index, model);
     }
 
-    public static DeleteContactEvent generateDeleteContactEvent(Contact contactDeleteed) {
-        return new DeleteContactEvent(contactDeleteed);
+    public static DeleteContactEvent generateDeleteContactEvent(Index index, Model model) {
+        return new DeleteContactEvent(index, model);
     }
 
     /*

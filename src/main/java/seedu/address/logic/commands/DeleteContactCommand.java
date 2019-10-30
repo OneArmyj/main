@@ -37,8 +37,8 @@ public class DeleteContactCommand extends DeleteCommand {
         targetIndex = null;
     }
 
-    public Contact getToDelete() {
-        return toDelete;
+    public Index getTargetIndex() {
+        return targetIndex;
     }
 
     @Override

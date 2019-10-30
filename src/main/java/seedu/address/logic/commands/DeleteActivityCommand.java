@@ -36,8 +36,8 @@ public class DeleteActivityCommand extends DeleteCommand {
         targetIndex = null;
     }
 
-    public Activity getToDelete() {
-        return toDelete;
+    public Index getTargetIndex() {
+        return targetIndex;
     }
 
     @Override

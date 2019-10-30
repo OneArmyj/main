@@ -6,6 +6,9 @@ import seedu.address.logic.commands.UndoableCommand;
 import seedu.address.logic.events.Event;
 import seedu.address.model.itineraryitem.accommodation.Accommodation;
 
+/**
+ * An event representing an 'add accommodation' command.
+ */
 public class AddAccommodationEvent implements Event {
     private final Accommodation accommodationAdded;
 

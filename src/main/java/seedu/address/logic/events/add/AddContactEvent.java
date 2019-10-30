@@ -6,6 +6,9 @@ import seedu.address.logic.commands.UndoableCommand;
 import seedu.address.logic.events.Event;
 import seedu.address.model.contact.Contact;
 
+/**
+ * An event representing an 'add contact' command
+ */
 public class AddContactEvent implements Event {
     private final Contact contactAdded;
 

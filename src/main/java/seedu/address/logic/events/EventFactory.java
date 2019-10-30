@@ -1,40 +1,57 @@
 package seedu.address.logic.events;
 
+import static java.util.Objects.requireNonNull;
+
 import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.EditCommand;
-import seedu.address.logic.commands.InitCommand;
 import seedu.address.logic.commands.UndoableCommand;
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.events.add.AddEventFactory;
 import seedu.address.logic.events.delete.DeleteEventFactory;
 import seedu.address.logic.events.edit.EditEventFactory;
+import seedu.address.logic.events.exceptions.EventException;
 import seedu.address.model.Model;
 
-import static java.util.Objects.requireNonNull;
-
+/**
+ * A factory class to generate the corresponding events according to the command input.
+ */
 public class EventFactory {
-    public static Event parse(UndoableCommand command, Model model) throws CommandException {
+    private static final String MESSAGE_COMMAND_ERROR = "\'%1$s\' command is not undoable.";
+
+    /**
+     * A static method to parse the command and generate the corresponding event.
+     * @param command Command to be parsed.
+     * @param model Current model of the application.
+     * @return Corresponding event for the command parsed.
+     * @throws EventException
+     */
+    public static Event parse(UndoableCommand command, Model model) throws EventException {
         requireNonNull(command);
         requireNonNull(model);
 
         String commandWord = command.getCommandWord();
 
-        switch(commandWord) {
+        switch (commandWord) {
         case (AddCommand.COMMAND_WORD):
-            AddEventFactory.parse((AddCommand)command);
+            return AddEventFactory.parse((AddCommand) command);
 
         case (DeleteCommand.COMMAND_WORD):
-            DeleteEventFactory.parse((DeleteCommand)command);
+            return DeleteEventFactory.parse((DeleteCommand) command);
 
         case (EditCommand.COMMAND_WORD):
-            EditEventFactory.parse((EditCommand)command, model);
-
+            return EditEventFactory.parse((EditCommand) command, model);
+        /*
         case (ClearCommand.COMMAND_WORD):
-            parseClearCommand(command);
-            
+            generateClearCommandEvent(model);
+            break;
+
         case (InitCommand.COMMAND_WORD):
             parseInitCommand(command);
+            break;
+        }
+        */
+        default:
+            throw new EventException(String.format(MESSAGE_COMMAND_ERROR, commandWord));
+        }
     }
 }

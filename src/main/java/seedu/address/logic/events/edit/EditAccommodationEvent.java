@@ -1,6 +1,7 @@
 package seedu.address.logic.events.edit;
 
 import java.util.List;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditAccommodationCommand;
 import seedu.address.logic.commands.EditAccommodationCommand.EditAccommodationDescriptor;
@@ -9,6 +10,9 @@ import seedu.address.logic.events.Event;
 import seedu.address.model.Model;
 import seedu.address.model.itineraryitem.accommodation.Accommodation;
 
+/**
+ * An event representing a 'edit accommodation' command.
+ */
 public class EditAccommodationEvent implements Event {
     private final Index index;
     private final EditAccommodationDescriptor editInfo;
@@ -28,6 +32,11 @@ public class EditAccommodationEvent implements Event {
         return new EditAccommodationCommand(index, editInfo);
     }
 
+    /**
+     * A method to construct an EditAccommodationDescriptor based on the current Accommodation to edit in the model.
+     * @param model Current model in the application.
+     * @return the EditAccommodationDescriptor containing information of the original Accommodation to be edited.
+     */
     private EditAccommodationDescriptor generateReverseEditInfo(Model model) {
         EditAccommodationDescriptor result = new EditAccommodationDescriptor();
 

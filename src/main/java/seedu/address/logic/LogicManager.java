@@ -15,6 +15,7 @@ import seedu.address.logic.commands.UndoableCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.events.Event;
 import seedu.address.logic.events.EventFactory;
+import seedu.address.logic.events.exceptions.EventException;
 import seedu.address.logic.parser.PlannerParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -47,14 +48,14 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public CommandResult execute(String commandText) throws CommandException, ParseException {
+    public CommandResult execute(String commandText) throws CommandException, ParseException, EventException {
         logger.info("----------------[USER COMMAND][" + commandText + "]");
 
         CommandResult commandResult;
         Command command = plannerParser.parseCommand(commandText);
 
         if (command instanceof UndoableCommand) {
-            Event undoableEvent = EventFactory.parse((UndoableCommand)command, model);
+            Event undoableEvent = EventFactory.parse((UndoableCommand) command, model);
             CommandHistory.addToUndoStack(undoableEvent);
         }
         if (!(command instanceof UndoCommand && !(command instanceof RedoCommand))) {

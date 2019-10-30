@@ -1,6 +1,7 @@
 package seedu.address.logic.events.edit;
 
 import java.util.List;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditContactCommand;
 import seedu.address.logic.commands.EditContactCommand.EditContactDescriptor;
@@ -9,6 +10,9 @@ import seedu.address.logic.events.Event;
 import seedu.address.model.Model;
 import seedu.address.model.contact.Contact;
 
+/**
+ * An event representing a 'edit contact' command.
+ */
 public class EditContactEvent implements Event {
     private final Index index;
     private final EditContactDescriptor editInfo;
@@ -28,6 +32,11 @@ public class EditContactEvent implements Event {
         return new EditContactCommand(index, editInfo);
     }
 
+    /**
+     * A method to construct an EditContactDescriptor based on the current Contact to edit in the model.
+     * @param model Current model in the application.
+     * @return the EditContactDescriptor containing information of the original Contact to be edited.
+     */
     private EditContactDescriptor generateReverseEditInfo(Model model) {
         EditContactDescriptor result = new EditContactDescriptor();
 

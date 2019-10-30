@@ -1,6 +1,7 @@
 package seedu.address.logic;
 
 import java.util.Stack;
+
 import seedu.address.logic.events.Event;
 
 /**

@@ -10,7 +10,10 @@ public abstract class EditCommand extends UndoableCommand {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of either a contact or activity,"
             + "depending on the following second command word and arguments.";
 
-    public String getCommandWord() { return COMMAND_WORD; }
+    @Override
+    public String getCommandWord() {
+        return COMMAND_WORD;
+    }
 
     public abstract String getSecondCommandWord();
 }

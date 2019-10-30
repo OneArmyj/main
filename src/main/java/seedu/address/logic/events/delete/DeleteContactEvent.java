@@ -1,12 +1,14 @@
 package seedu.address.logic.events.delete;
 
 import seedu.address.logic.commands.AddContactCommand;
-import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteContactCommand;
 import seedu.address.logic.commands.UndoableCommand;
 import seedu.address.logic.events.Event;
 import seedu.address.model.contact.Contact;
 
+/**
+ * An event representing a 'delete contact' command.
+ */
 public class DeleteContactEvent implements Event {
     private final Contact contactDeleted;
 

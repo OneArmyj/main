@@ -31,8 +31,6 @@ public class InitCommand extends UndoableCommand {
     public static final String MESSAGE_SUCCESS = "Planner initialised with name:%1$s and"
             + " start date:%2$s";
 
-    public String getCommandWord() { return COMMAND_WORD; }
-
     private final Name name;
     private final LocalDate startDate;
 
@@ -43,6 +41,11 @@ public class InitCommand extends UndoableCommand {
         requireAllNonNull(name, date);
         this.name = name;
         this.startDate = date;
+    }
+
+    @Override
+    public String getCommandWord() {
+        return COMMAND_WORD;
     }
 
     @Override

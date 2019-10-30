@@ -6,6 +6,9 @@ import seedu.address.logic.commands.UndoableCommand;
 import seedu.address.logic.events.Event;
 import seedu.address.model.itineraryitem.activity.Activity;
 
+/**
+ * An event representing an 'add activity' command.
+ */
 public class AddActivityEvent implements Event {
     private final Activity activityAdded;
 

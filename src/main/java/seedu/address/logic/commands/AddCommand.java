@@ -12,7 +12,10 @@ public abstract class AddCommand extends UndoableCommand {
 
     public static final String MESSAGE_SUCCESS = "Added!";
 
-    public String getCommandWord() { return COMMAND_WORD; }
+    @Override
+    public String getCommandWord() {
+        return COMMAND_WORD;
+    }
 
     public abstract String getSecondCommandWord();
 }

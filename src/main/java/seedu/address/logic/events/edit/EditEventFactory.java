@@ -8,14 +8,24 @@ import seedu.address.logic.commands.EditActivityCommand.EditActivityDescriptor;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.EditContactCommand;
 import seedu.address.logic.commands.EditContactCommand.EditContactDescriptor;
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.events.Event;
+import seedu.address.logic.events.exceptions.EventException;
 import seedu.address.model.Model;
 
+/**
+ * A factory class to generate the corresponding edit Events according to the edit Commands parsed.
+ */
 public class EditEventFactory {
     public static final String MESSAGE_NOT_UNDOABLE = "The following command \'%1$s\' \'%2$s\' is not undoable";
 
-    public static Event parse(EditCommand command, Model model) throws CommandException {
+    /**
+     * A static method to generate the edit events based on the edit commands parsed.
+     * @param command Edit Command to be parsed.
+     * @param model Current model of the application.
+     * @return Corresponding event representing the edit command parsed.
+     * @throws EventException
+     */
+    public static Event parse(EditCommand command, Model model) throws EventException {
         String secondCommandWord = command.getSecondCommandWord();
 
         switch(secondCommandWord) {
@@ -35,7 +45,7 @@ public class EditEventFactory {
                     tempCommand3.getEditContactDescriptor(), model);
 
         default:
-            throw new CommandException(
+            throw new EventException(
                     String.format(MESSAGE_NOT_UNDOABLE, command.getCommandWord(), command.getSecondCommandWord())
             );
         }
@@ -48,18 +58,18 @@ public class EditEventFactory {
         */
     }
 
-    public static EditAccommodationEvent generateEditAccommodationEvent
-            (Index index, EditAccommodationDescriptor editInfo, Model model) {
+    public static EditAccommodationEvent generateEditAccommodationEvent(
+            Index index, EditAccommodationDescriptor editInfo, Model model) {
         return new EditAccommodationEvent(index, editInfo, model);
     }
 
-    public static EditActivityEvent generateEditActivityEvent
-            (Index index, EditActivityDescriptor editInfo, Model model) {
+    public static EditActivityEvent generateEditActivityEvent(
+            Index index, EditActivityDescriptor editInfo, Model model) {
         return new EditActivityEvent(index, editInfo, model);
     }
 
-    public static EditContactEvent generateEditContactEvent
-            (Index index, EditContactDescriptor editInfo, Model model) {
+    public static EditContactEvent generateEditContactEvent(
+            Index index, EditContactDescriptor editInfo, Model model) {
         return new EditContactEvent(index, editInfo, model);
     }
 

@@ -11,7 +11,10 @@ public abstract class DeleteCommand extends UndoableCommand {
             + ": Deletes either a day, person or activity identified by the index number used in the displayed list.\n"
             + "Parameters: INDEX (must be a positive integer)\n";
 
-    public String getCommandWord() { return COMMAND_WORD; }
+    @Override
+    public String getCommandWord() {
+        return COMMAND_WORD;
+    }
 
     public abstract String getSecondCommandWord();
 }

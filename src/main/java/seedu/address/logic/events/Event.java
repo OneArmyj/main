@@ -6,7 +6,6 @@ import seedu.address.logic.commands.UndoableCommand;
  * Represents events that can be undone.
  */
 public interface Event {
-    
     /**
      * A method to undo the effects of the event.
      * @return Returns a CommandResult to undo the effects of the event.

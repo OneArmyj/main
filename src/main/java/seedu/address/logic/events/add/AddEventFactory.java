@@ -4,16 +4,25 @@ import seedu.address.logic.commands.AddAccommodationCommand;
 import seedu.address.logic.commands.AddActivityCommand;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AddContactCommand;
-import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.events.Event;
+import seedu.address.logic.events.exceptions.EventException;
 import seedu.address.model.contact.Contact;
 import seedu.address.model.itineraryitem.accommodation.Accommodation;
 import seedu.address.model.itineraryitem.activity.Activity;
 
+/**
+ * A factory class to generate the corresponding add Events according to the add Commands parsed.
+ */
 public class AddEventFactory {
     public static final String MESSAGE_NOT_UNDOABLE = "The following command \'%1$s\' \'%2$s\' is not undoable";
 
-    public static Event parse(AddCommand command) throws CommandException {
+    /**
+     * A static method to generate the add events based on the add commands parsed.
+     * @param command Add Command to be parsed.
+     * @return Corresponding event representing the add command parsed.
+     * @throws EventException
+     */
+    public static Event parse(AddCommand command) throws EventException {
         String secondCommandWord = command.getSecondCommandWord();
 
         switch(secondCommandWord) {
@@ -30,7 +39,7 @@ public class AddEventFactory {
             return generateAddContactEvent(tempCommand3.getToAdd());
 
         default:
-            throw new CommandException(
+            throw new EventException(
                     String.format(MESSAGE_NOT_UNDOABLE, command.getCommandWord(), command.getSecondCommandWord())
             );
         }

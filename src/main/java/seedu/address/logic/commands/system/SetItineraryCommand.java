@@ -5,9 +5,13 @@ import seedu.address.logic.commands.result.CommandResult;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyItinerary;
 
+/**
+ * A command that is not usable by a User, only exist to assist in undoing the effects of AutoSchedule and
+ * OptimiseBudget commands.
+ */
 public class SetItineraryCommand extends UndoableCommand {
-    private final static String COMMAND_WORD = "setitinerary";
-    private final static String MESSAGE_SUCCESS = "Autoschedule successfully undone.";
+    public static final String COMMAND_WORD = "setitinerary";
+    public static final String MESSAGE_SUCCESS = "Command successfully undone.";
     private final ReadOnlyItinerary itinerary;
 
     public SetItineraryCommand(ReadOnlyItinerary itinerary) {
